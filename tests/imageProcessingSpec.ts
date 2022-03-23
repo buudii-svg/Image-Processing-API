@@ -2,9 +2,10 @@ import supertest from 'supertest';
 import app from '../src/index';
 import ImageResize from '../utilities/imageSharp';
 
+// import super test for endpoint testing
 const request= supertest(app);
-
-describe('suite of enpiont is localhost:', (): void => {
+//testing the suite of endpoints
+describe('Enpiont is localhost:', (): void => {
     it('gets image successfully', async (): Promise<void> => {
         const response = await request.get(
             '/api/images?src=palmtunnel&w=200&h=200'
@@ -29,6 +30,8 @@ describe('suite of enpiont is localhost:', (): void => {
         expect(response.status).toBe(200);
     });
 });
+
+//testing if sharp is resising the images
 describe('error with sharp', (): void => {
     it('error', async (): Promise<void> => {
         const error: string = await ImageResize({
@@ -39,6 +42,7 @@ describe('error with sharp', (): void => {
         expect(error).not.toBeNull();
     });
 
+    //tetsing if the source is correct
     it('filename does not exist', async (): Promise<void> => {
         const error: null | string = await ImageResize({
             src: 'invalid',
