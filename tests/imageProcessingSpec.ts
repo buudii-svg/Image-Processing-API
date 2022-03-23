@@ -34,7 +34,7 @@ describe('error with sharp', (): void => {
     it('error', async (): Promise<void> => {
         const error: string = await ImageResize({
             src: 'pulmtunnel',
-            w: -100,
+            w: -500,
             h: 500
         });
         expect(error).not.toBeNull();
