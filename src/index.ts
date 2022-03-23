@@ -2,7 +2,7 @@ import express from 'express';
 import images from '../routes/api/ImageProcessingAPI';
 
 const app = express();
-const port = 3000;
+const port = 5000;
 
 app.use('/api', images);
 app.use('/api',images);
