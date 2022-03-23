@@ -5,7 +5,7 @@ Lint: npm run eslint
 Prettier: npm run prettier
 Run unit tests: npm run test
 Start server: npm run start
-Usage
+
 The server will listen on port 5000:
 
 Brief instructions
