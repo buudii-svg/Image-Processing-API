@@ -14,6 +14,9 @@ http://localhost:5000/
 Endpoint to resize images
 http://localhost:5000/api/images?src=palmtunnel&w=500&h=500
 
+Endpoint to delete image
+http://localhost:5000/api/images/delete?src=palmtunnel&w=500&h=500
+
 Expected  arguments 
 
 src: palmtunnel

@@ -1,6 +1,5 @@
 import supertest from 'supertest';
 import app from '../src/index';
-import fs from 'fs';
 import ImageResize from '../utilities/imageSharp';
 
 const request= supertest(app);
