@@ -1,4 +1,5 @@
 import sharp from 'sharp';
+import path from 'path';
 
 interface sharpResize {
     src: string; //source
@@ -11,9 +12,9 @@ const ImageResize = async (
     params: sharpResize
 ): Promise<string> => {
     try {
-        await sharp(`C:/Users/OWNER/Image-Processing-API/assets/full/${params.src}.jpg`) //take parameter from query parameter url
+        await sharp(path.resolve(`assets/full/${params.src}.jpg`)) //take parameters from query parameter url
             .resize(params.w, params.h)
-            .toFile(`assets/thumb/${params.src}-${params.w}-${params.h}.jpg`) // send image to thumb folder
+            .toFile(path.resolve(`assets/thumb/${params.src}-${params.w}-${params.h}.jpg`)) // send image to thumb folder
         return "success";
     } catch {
         return 'Image is not found.';

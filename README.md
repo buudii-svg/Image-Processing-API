@@ -17,11 +17,11 @@ http://localhost:5000/api/images?src=palmtunnel&w=500&h=500
 Endpoint to delete image
 http://localhost:5000/api/images/delete?src=palmtunnel&w=500&h=500
 
-Expected  arguments 
+Expected arguments 
 
 src: palmtunnel
-w > 0
-h > 0
+w > 0 or null
+h > 0 or null
 
 Notes
  images are saved under ./assets/full

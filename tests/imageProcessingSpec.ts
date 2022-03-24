@@ -3,7 +3,8 @@ import app from '../src/index';
 import ImageResize from '../utilities/imageSharp';
 
 // import super test for endpoint testing
-const request= supertest(app);
+const request = supertest(app);
+
 //testing the suite of endpoints
 describe('Enpiont is localhost:', (): void => {
     it('gets image successfully', async (): Promise<void> => {
@@ -20,7 +21,6 @@ describe('Enpiont is localhost:', (): void => {
     });
     it('returns 404 for invalid endpoint', async (): Promise<void> => {
         const response = await request.get('/invalid');
-
         expect(response.status).toBe(404);
     });
     it('delete suucessfully', async (): Promise<void> => {

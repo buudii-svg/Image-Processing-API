@@ -9,7 +9,7 @@ app.use('/api', images);
 
 // Listen at port 5000
 app.listen(port, () => {
-    console.log(`server started at localhost:${port}`);
+  console.log(`server started at localhost:${port}`);
 });
 
 export default app;
