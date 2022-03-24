@@ -1,8 +1,8 @@
 Scripts
 Install: npm install
 Build: npm run build
-Lint: npm run eslint
 Prettier: npm run prettier
+Lint: npm run eslint
 Run unit tests: npm run test
 Start server: npm run start
 
