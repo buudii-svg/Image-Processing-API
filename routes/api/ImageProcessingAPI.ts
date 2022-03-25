@@ -9,17 +9,25 @@ const images = express.Router();
 // get images
 images.get('/images', async (req: express.Request, res: express.Response): Promise<void> => {
 
+ // handeling errors
+try{
     if (Number(req.query.w) <= 0 || Number(req.query.w) == null) {
         res.send("width must be over 0 and not be null")
     }
     else if (Number(req.query.h) <= 0 || Number(req.query.h) == null) {
         res.send("height must be over 0 and not be null")
     }
+    else if (isNaN(Number(req.query.w)) == true || isNaN(Number(req.query.h)) == true ) {
+        res.send("width or height must be positive numbers")
+    }
     else if (fs.existsSync(`assets/full/${req.query.src}.jpg`) == false) {
         res.send("Invalid image name");
     }
-
-    // to chech fo cache
+}
+ catch (error) {
+    res.status(400).send(`${error}`);
+}
+    // to check for cache
     if (fs.existsSync(`assets/thumb/${req.query.src}-${req.query.w}-${req.query.h}.jpg`)) {
         res.sendFile(path.resolve(`assets/thumb/${req.query.src}-${req.query.w}-${req.query.h}.jpg`));
     }
@@ -35,6 +43,7 @@ images.get('/images', async (req: express.Request, res: express.Response): Promi
         console.log('image is successfully got');
     }
 });
+
 
 // delete image
 images.delete('/images/delete', async (req: express.Request, res: express.Response): Promise<void> => {
