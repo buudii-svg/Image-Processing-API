@@ -1,7 +1,7 @@
 import sharp from 'sharp';
 import path from 'path';
 
-interface sharpResize {
+type sharpResize = {
   src: string; //source
   w: number; //width
   h: number; //height
